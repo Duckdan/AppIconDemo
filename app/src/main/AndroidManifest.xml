@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="study.com.appicondemo">
+
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/icon_normal"
+        android:label="APP图标"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <activity android:name=".MainActivity">
+            <!--如果activity-alias下面中的android:enabled="true",此处必须注释掉，
+                否则桌面上将会生成两个应用图标
+            <intent-filter>
+                 <action android:name="android.intent.action.MAIN"/>
+                 <category android:name="android.intent.category.LAUNCHER"/>
+             </intent-filter>
+             -->
+        </activity>
+
+
+        <!--
+        android:targetActivity=".MainActivity"中的目标Activity必须声明在activity-alias，
+        否则应用将会报找不到目标Activity
+        android:name=".icon_tag"是为了方便等会在代码中使用的，该属性的值必须跟java代码中使用
+        的时候保持一致
+        android:enabled="true"是表示这个activity-alias激活
+        -->
+        <activity-alias
+            android:name=".icon_tag"
+            android:enabled="false"
+            android:icon="@mipmap/icon_normal"
+            android:label="App图标-普通版"
+            android:targetActivity=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name=".icon_tag_1212"
+            android:enabled="true"
+            android:icon="@mipmap/icon_festival"
+            android:label="App图标-节日版"
+            android:targetActivity=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity-alias>
+
+
+    </application>
+
+</manifest>
